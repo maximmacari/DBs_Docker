@@ -1,0 +1,24 @@
+version: '3.8'
+
+volumes:
+  db_data:
+
+x-shared_environment: &shared_environment
+  LOG_LEVEL: ${LOG_LEVEL:-debug}
+  DATABASE_HOST: db
+  DATABASE_NAME: hairdressing_auth
+  DATABASE_USERNAME: rootssl
+  DATABASE_PASSWORD: rootssl
+  
+services:
+  db:
+    image: mysql:8.0
+    volumes:
+      - db_data:/var/lib/mysql
+    environment:
+      MYSQL_USER: rootssl
+      MYSQL_PASSWORD: rootssl
+      MYSQL_DATABASE: hairdressing_auth
+      MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+    ports:
+      - '8889:3306'

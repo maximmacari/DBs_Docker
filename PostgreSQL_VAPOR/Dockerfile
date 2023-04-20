@@ -1,0 +1,5 @@
+FROM postgres:14.1
+
+ENV POSTGRES_USER=rootssl
+ENV POSTGRES_PASSWORD=rootssl
+ENV POSTGRES_DB=mydb

@@ -1,0 +1,16 @@
+version: '3.8'
+
+volumes:
+  db_data:
+
+services:
+  db:
+    image: mongo:5.1.1
+    volumes:
+      - db_data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: rootssl
+      MONGO_INITDB_ROOT_PASSWORD: rootssl
+      MONGO_INITDB_DATABASE: mydb
+    ports:
+      - '27017:27017'
